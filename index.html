@@ -3,101 +3,211 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>S-IT Software Tools</title>
+<title>S-IT Software Tools – Sattler IT-Service</title>
 <link rel="icon" type="image/x-icon" href="s-it-icon140.ico">
 <style>
-body {
-  font-family: Segoe UI, Arial, sans-serif;
-  margin: 0;
-  background: #f4f6f8;
-  color: #2c3e50;
-}
-header {
-  background: #2c3e50;
-  color: white;
-  text-align: center;
-  padding: 50px 20px;
-}
-header h1 {
-  margin: 0;
-  font-size: 42px;
-}
-header p {
-  margin-top: 10px;
-  font-size: 18px;
-  color: #ecf0f1;
-}
-main {
-  max-width: 1100px;
-  margin: auto;
-  padding: 40px 20px;
-}
-.tools {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 24px;
-}
-.card {
-  background: white;
-  padding: 24px;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-}
-.card h2 {
-  margin-top: 0;
-}
-.card a {
-  display: inline-block;
-  margin-top: 16px;
-  padding: 10px 20px;
-  background: #3498db;
-  color: white;
-  text-decoration: none;
-  border-radius: 5px;
-}
-footer {
-  background: #2c3e50;
-  color: white;
-  text-align: center;
-  padding: 20px;
-  margin-top: 40px;
-}
+  :root {
+    --primary:  #2C3E50;
+    --success:  #27AE60;
+    --info:     #3498DB;
+    --warning:  #F39C12;
+    --light:    #ECF0F1;
+    --bg:       #F5F5F5;
+    --white:    #FFFFFF;
+    --text:     #2C3E50;
+    --muted:    #7F8C8D;
+    --border:   #BDC3C7;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    font-size: 15px;
+    color: var(--text);
+    background: var(--bg);
+    line-height: 1.7;
+  }
+
+  /* ── HEADER ── */
+  header {
+    background: var(--primary);
+    color: var(--white);
+    padding: 52px 40px 44px;
+    text-align: center;
+  }
+  header h1 {
+    font-size: 46px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+  }
+  header p.tagline {
+    font-size: 16px;
+    color: var(--light);
+  }
+
+  /* ── NAV ── */
+  nav {
+    background: #34495E;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  nav a {
+    color: var(--light);
+    text-decoration: none;
+    padding: 12px 22px;
+    font-size: 13px;
+    transition: background 0.2s;
+  }
+  nav a:hover { background: var(--primary); color: var(--white); }
+
+  /* ── MAIN ── */
+  main {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 52px 24px 80px;
+  }
+
+  .section-title {
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--muted);
+    margin-bottom: 24px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--border);
+  }
+
+  /* ── TOOL CARDS ── */
+  .tools {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+    margin-bottom: 52px;
+  }
+
+  .tool-card {
+    background: var(--white);
+    border-radius: 6px;
+    border-top: 4px solid var(--info);
+    box-shadow: 0 1px 4px rgba(0,0,0,0.07);
+    padding: 28px 24px 24px;
+    display: flex;
+    flex-direction: column;
+  }
+  .tool-card .t-icon {
+    font-size: 32px;
+    margin-bottom: 12px;
+    display: block;
+  }
+  .tool-card h2 {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 8px;
+  }
+  .tool-card p {
+    font-size: 14px;
+    color: var(--muted);
+    flex: 1;
+    margin-bottom: 20px;
+  }
+  .tool-card .btn-open {
+    display: inline-block;
+    background: var(--info);
+    color: var(--white);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 10px 22px;
+    border-radius: 4px;
+    text-align: center;
+    transition: background 0.2s;
+  }
+  .tool-card .btn-open:hover { background: #217DB8; }
+
+  /* ── INFO BOX ── */
+  .info-box {
+    background: var(--white);
+    border-radius: 6px;
+    border-left: 4px solid var(--info);
+    padding: 20px 24px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+    font-size: 14px;
+    color: var(--muted);
+  }
+  .info-box a { color: var(--info); font-weight: 600; text-decoration: none; }
+  .info-box a:hover { text-decoration: underline; }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--primary);
+    color: var(--light);
+    text-align: center;
+    padding: 22px 40px;
+    font-size: 13px;
+    line-height: 1.9;
+  }
+  footer a { color: var(--light); }
 </style>
 </head>
 <body>
 
 <header>
   <h1>S-IT Software Tools</h1>
-  <p>Professionelle Windows-Tools von Sattler IT-Service</p>
+  <p class="tagline">Professionelle Windows-Freeware von Sattler IT-Service, Greifenstein</p>
 </header>
 
+<nav>
+  <a href="ueber-uns.html">Über uns</a>
+  <a href="impressum.html">Impressum &amp; Kontakt</a>
+</nav>
+
 <main>
+
+  <p class="section-title">Verfügbare Tools</p>
+
   <div class="tools">
-    <div class="card">
-      <h2>🌐 LAN Device Scanner</h2>
-      <p>Netzwerkgeräte erkennen, analysieren und dokumentieren.</p>
-      <a href="https://sattlerit.github.io/sit-lanscanner/">Öffnen</a>
+
+    <div class="tool-card">
+      <span class="t-icon">🌐</span>
+      <h2>LAN Device Scanner</h2>
+      <p>Erkennt Geräte, Hersteller und Betriebssysteme im Netzwerk. Mit Internet-Speedtest, LAN-Performance-Messung, WLAN-Analyse und LOG-Manager.</p>
+      <a class="btn-open" href="https://sattlerit.github.io/sit-lanscanner/">Zur Projektseite</a>
     </div>
 
-    <div class="card">
-      <h2>💾 BRC</h2>
-      <p>Backup, Restore und Cleanup für Benutzerdaten.</p>
-      <a href="https://sattlerit.github.io/sit-brc/">Öffnen</a>
+    <div class="tool-card">
+      <span class="t-icon">💾</span>
+      <h2>BRC – Backup · Restore · Cleanup</h2>
+      <p>Sichert Benutzerdaten auf externe Laufwerke, stellt sie wieder her und bereinigt veraltete Backup-Stände – mit Setup-Installer und Hilfe-Dateien.</p>
+      <a class="btn-open" href="https://sattlerit.github.io/sit-brc/">Zur Projektseite</a>
     </div>
 
-    <div class="card">
-      <h2>📋 3Kopier</h2>
-      <p>Dreifach-Kopierer mit Profilen und Protokoll.</p>
-      <a href="https://sattlerit.github.io/sit-3kopier/">Öffnen</a>
+    <div class="tool-card">
+      <span class="t-icon">📋</span>
+      <h2>3Kopier</h2>
+      <p>Kopiert oder verschiebt Dateien in einem Durchlauf auf bis zu drei Ziele – mit Profilen, Fortschrittsanzeige und optionalem Herunterfahren.</p>
+      <a class="btn-open" href="https://sattlerit.github.io/sit-3kopier/">Zur Projektseite</a>
     </div>
+
   </div>
+
+  <div class="info-box">
+    Alle Tools sind <strong>kostenlose Freeware</strong> und werden aktiv weiterentwickelt.
+    Downloads und Releases sind auf den jeweiligen Projektseiten verfügbar.
+    Fragen und Kontakt: <a href="impressum.html">Impressum &amp; Kontakt</a>
+  </div>
+
 </main>
 
-<footer style="margin-top:40px; text-align:center; font-size:14px; color:#ffffff;">
-  © 2026 Hans Udo Sattler · Sattler IT-Service ·
-  <a href="impressum.html" style="color:#ffffff; text-decoration:underline;">Impressum</a>
-  ·
-  <a href="ueber-uns.html" style="color:#ffffff; text-decoration:underline;">Über uns</a>
+<footer>
+  © 2026 Hans Udo Sattler &nbsp;·&nbsp; Sattler IT-Service, Greifenstein &nbsp;·&nbsp;
+  <a href="impressum.html">Impressum</a> &nbsp;·&nbsp;
+  <a href="ueber-uns.html">Über uns</a>
 </footer>
+
 </body>
 </html>
