@@ -129,6 +129,77 @@
   }
   .tool-card .btn-open:hover { background: #217DB8; }
 
+  /* ── PAIR CARD (Tool-Paar) ── */
+  .pair-card {
+    background: var(--white);
+    border-radius: 6px;
+    border-top: 4px solid var(--warning);
+    box-shadow: 0 1px 4px rgba(0,0,0,0.07);
+    padding: 28px 24px 24px;
+    margin-bottom: 52px;
+  }
+  .pair-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+  .pair-icon { font-size: 38px; line-height: 1; }
+  .pair-header h2 {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 4px;
+  }
+  .pair-sub { font-size: 14px; color: var(--muted); }
+  .pair-body {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 16px;
+    align-items: start;
+    margin-bottom: 24px;
+    background: var(--bg);
+    border-radius: 4px;
+    padding: 20px;
+  }
+  .pair-component strong {
+    display: block;
+    font-size: 15px;
+    color: var(--primary);
+    margin: 8px 0 6px;
+  }
+  .pair-component p { font-size: 13px; color: var(--muted); margin: 0; }
+  .comp-badge {
+    display: inline-block;
+    background: var(--warning);
+    color: var(--white);
+    font-size: 11px;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 3px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .pair-divider {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--border);
+    text-align: center;
+    padding-top: 28px;
+  }
+  .pair-card .btn-open {
+    display: inline-block;
+    background: var(--warning);
+    color: var(--white);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 10px 22px;
+    border-radius: 4px;
+    transition: background 0.2s;
+  }
+  .pair-card .btn-open:hover { background: #D68910; }
+
   /* ── INFO BOX ── */
   .info-box {
     background: var(--white);
@@ -202,7 +273,33 @@
 
   </div>
 
-  <div class="info-box">
+  <p class="section-title" style="margin-top:52px">Neu: Tool-Paket</p>
+
+  <div class="pair-card">
+    <div class="pair-header">
+      <span class="pair-icon">🔐</span>
+      <div>
+        <h2>S-IT USB-Lock</h2>
+        <p class="pair-sub">Beliebige USB-Datenträger einmalig verschlüsseln — danach per Knopfdruck <strong>Entsperren</strong> und <strong>Sperren</strong>.</p>
+      </div>
+    </div>
+    <div class="pair-body">
+      <div class="pair-component">
+        <span class="comp-badge">Einrichtung</span>
+        <strong>S-IT UsbSetup</strong>
+        <p>Richtet eine neue SSD, HDD oder einen USB-Stick einmalig ein: Partitionierung, AES-256-Verschlüsselung mit VeraCrypt und Ablage aller notwendigen Dateien auf dem Datenträger selbst.</p>
+      </div>
+      <div class="pair-divider">+</div>
+      <div class="pair-component">
+        <span class="comp-badge">Täglicher Einsatz</span>
+        <strong>S-IT UsbLock</strong>
+        <p>Entsperrt und sperrt den eingerichteten Datenträger auf Knopfdruck – ohne Installation, auf jedem Windows-PC direkt vom Datenträger startbar. Egal ob USB-Stick, SSD oder HDD — kostenlos einen eigenen Datensafe nutzen.</p>
+      </div>
+    </div>
+    <a class="btn-open" href="https://sattlerit.github.io/sit-usblock/">Zur Projektseite</a>
+  </div>
+
+  <div class="info-box" style="margin-top:32px">
     Alle Tools sind <strong>kostenlose Freeware</strong> und werden aktiv weiterentwickelt.
     Downloads und Releases sind auf den jeweiligen Projektseiten verfügbar.
     Fragen und Kontakt: <a href="impressum.html">Impressum &amp; Kontakt</a>
