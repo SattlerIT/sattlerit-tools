@@ -1,292 +1,426 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>S-IT Software Tools – Sattler IT-Service</title>
-<link rel="icon" type="image/x-icon" href="s-it-icon140.ico">
-<style>
-  :root {
-    --primary:  #2C3E50;
-    --success:  #27AE60;
-    --info:     #3498DB;
-    --warning:  #F39C12;
-    --light:    #ECF0F1;
-    --bg:       #F5F5F5;
-    --white:    #FFFFFF;
-    --text:     #2C3E50;
-    --muted:    #7F8C8D;
-    --border:   #BDC3C7;
-  }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>S-IT Software Tools – Sattler IT-Service</title>
+  <link rel="icon" type="image/x-icon" href="s-it-icon140.ico">
+  <style>
+    :root {
+      --primary:   #2C3E50;
+      --red:       #E74C3C;
+      --green:     #27AE60;
+      --blue:      #2980B9;
+      --orange:    #E67E22;
+      --yellow:    #F1C40F;
+      --light:     #ECF0F1;
+      --bg:        #F5F5F5;
+      --card:      #FFFFFF;
+      --border:    #BDC3C7;
+      --text:      #2C3E50;
+      --muted:     #7F8C8D;
+      --font:      'Segoe UI', Arial, sans-serif;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: var(--font); background: var(--bg); color: var(--text); }
 
-  * { box-sizing: border-box; margin: 0; padding: 0; }
+    /* ── HEADER ── */
+    header {
+      background: var(--primary);
+      padding: 28px 40px 24px;
+    }
+    .header-inner {
+      max-width: 980px;
+      margin: 0 auto;
+      display: flex;
+      align-items: flex-end;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .logo { display: flex; align-items: baseline; gap: 0; }
+    .logo-sit  { color: var(--red); font-size: 36px; font-weight: 700; line-height: 1; }
+    .logo-name { color: #fff;       font-size: 36px; font-weight: 300; line-height: 1; }
+    .header-sub {
+      color: var(--border);
+      font-size: 13px;
+      padding-bottom: 4px;
+    }
+    .header-badge {
+      margin-left: auto;
+      background: rgba(255,255,255,.08);
+      border: 1px solid rgba(255,255,255,.2);
+      color: var(--light);
+      font-size: 12px;
+      padding: 5px 14px;
+      border-radius: 20px;
+      white-space: nowrap;
+    }
 
-  body {
-    font-family: "Segoe UI", Arial, sans-serif;
-    font-size: 15px;
-    color: var(--text);
-    background: var(--bg);
-    line-height: 1.7;
-  }
+    /* ── NAV ── */
+    nav {
+      background: #34495E;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    nav a {
+      color: var(--light);
+      text-decoration: none;
+      padding: 11px 22px;
+      font-size: 13px;
+      transition: background .2s;
+    }
+    nav a:hover { background: var(--primary); color: #fff; }
 
-  /* ── HEADER ── */
-  header {
-    background: var(--primary);
-    color: var(--white);
-    padding: 52px 40px 44px;
-    text-align: center;
-  }
-  header h1 {
-    font-size: 46px;
-    font-weight: 700;
-    letter-spacing: 1px;
-    margin-bottom: 10px;
-  }
-  header p.tagline {
-    font-size: 16px;
-    color: var(--light);
-  }
+    /* Rote Trennlinie */
+    .divider { height: 3px; background: var(--red); }
 
-  /* ── NAV ── */
-  nav {
-    background: #34495E;
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-  }
-  nav a {
-    color: var(--light);
-    text-decoration: none;
-    padding: 12px 22px;
-    font-size: 13px;
-    transition: background 0.2s;
-  }
-  nav a:hover { background: var(--primary); color: var(--white); }
+    /* ── HERO ── */
+    .hero {
+      background: var(--primary);
+      padding: 0 40px 36px;
+    }
+    .hero-inner {
+      max-width: 980px;
+      margin: 0 auto;
+      padding-top: 32px;
+    }
+    .hero h1 {
+      font-size: 22px;
+      font-weight: 600;
+      color: #fff;
+      margin-bottom: 12px;
+      line-height: 1.4;
+      max-width: 780px;
+    }
+    .hero p {
+      color: var(--border);
+      font-size: 14px;
+      line-height: 1.7;
+      max-width: 780px;
+    }
+    .hero-meta {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 20px;
+    }
+    .hero-chip {
+      background: rgba(255,255,255,.08);
+      border: 1px solid rgba(255,255,255,.2);
+      color: var(--light);
+      font-size: 12px;
+      padding: 5px 14px;
+      border-radius: 20px;
+    }
 
-  /* ── MAIN ── */
-  main {
-    max-width: 1000px;
-    margin: 0 auto;
-    padding: 52px 24px 80px;
-  }
+    /* ── MAIN ── */
+    main {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 40px 20px 60px;
+    }
 
-  .section-title {
-    font-size: 13px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    color: var(--muted);
-    margin-bottom: 24px;
-    padding-bottom: 10px;
-    border-bottom: 2px solid var(--border);
-  }
+    /* ── SECTION TITLE ── */
+    .section-title {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 16px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid var(--red);
+      display: inline-block;
+    }
 
-  /* ── TOOL CARDS ── */
-  .tools {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 24px;
-    margin-bottom: 52px;
-  }
+    /* ── TOOL CARDS ── */
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 20px 22px;
+      display: flex;
+      flex-direction: column;
+    }
+    .card-icon { font-size: 22px; margin-bottom: 10px; }
+    .card h3   { font-size: 14px; font-weight: 700; margin-bottom: 6px; }
+    .card p    { font-size: 13px; color: var(--muted); line-height: 1.6; flex: 1; margin-bottom: 16px; }
+    .btn-project {
+      display: inline-block;
+      align-self: flex-start;
+      background: var(--blue);
+      color: #fff;
+      font-size: 12px;
+      font-weight: 600;
+      padding: 8px 16px;
+      border-radius: 4px;
+      text-decoration: none;
+      transition: background .2s;
+    }
+    .btn-project:hover { background: #216694; }
 
-  .tool-card {
-    background: var(--white);
-    border-radius: 6px;
-    border-top: 4px solid var(--info);
-    box-shadow: 0 1px 4px rgba(0,0,0,0.07);
-    padding: 28px 24px 24px;
-    display: flex;
-    flex-direction: column;
-  }
-  .tool-card .t-icon {
-    font-size: 32px;
-    margin-bottom: 12px;
-    display: block;
-  }
-  .tool-card h2 {
-    font-size: 18px;
-    font-weight: 700;
-    color: var(--primary);
-    margin-bottom: 8px;
-  }
-  .tool-card p {
-    font-size: 14px;
-    color: var(--muted);
-    flex: 1;
-    margin-bottom: 20px;
-  }
-  .tool-card .btn-open {
-    display: inline-block;
-    background: var(--info);
-    color: var(--white);
-    text-decoration: none;
-    font-size: 14px;
-    font-weight: 600;
-    padding: 10px 22px;
-    border-radius: 4px;
-    text-align: center;
-    transition: background 0.2s;
-  }
-  .tool-card .btn-open:hover { background: #217DB8; }
+    /* ── PAIR CARD (Tool-Paket) ── */
+    .pair-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-top: 3px solid var(--orange);
+      border-radius: 6px;
+      padding: 22px 24px;
+      margin-bottom: 32px;
+    }
+    .pair-header {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      margin-bottom: 18px;
+    }
+    .pair-icon { font-size: 32px; line-height: 1; }
+    .pair-header h3 {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 4px;
+    }
+    .pair-sub { font-size: 13px; color: var(--muted); line-height: 1.6; }
+    .pair-body {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      gap: 16px;
+      align-items: start;
+      margin-bottom: 18px;
+      background: var(--bg);
+      border-radius: 4px;
+      padding: 18px;
+    }
+    .pair-component strong {
+      display: block;
+      font-size: 14px;
+      color: var(--primary);
+      margin: 8px 0 6px;
+    }
+    .pair-component p { font-size: 13px; color: var(--muted); line-height: 1.6; }
+    .comp-badge {
+      display: inline-block;
+      background: var(--orange);
+      color: #fff;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 3px;
+      text-transform: uppercase;
+      letter-spacing: .5px;
+    }
+    .pair-divider {
+      font-size: 26px;
+      font-weight: 700;
+      color: var(--border);
+      text-align: center;
+      padding-top: 26px;
+    }
+    .pair-card .btn-project { background: var(--orange); }
+    .pair-card .btn-project:hover { background: #CA6F1E; }
 
-  /* ── PAIR CARD (Tool-Paar) ── */
-  .pair-card {
-    background: var(--white);
-    border-radius: 6px;
-    border-top: 4px solid var(--warning);
-    box-shadow: 0 1px 4px rgba(0,0,0,0.07);
-    padding: 28px 24px 24px;
-    margin-bottom: 52px;
-  }
-  .pair-header {
-    display: flex;
-    align-items: flex-start;
-    gap: 16px;
-    margin-bottom: 24px;
-  }
-  .pair-icon { font-size: 38px; line-height: 1; }
-  .pair-header h2 {
-    font-size: 20px;
-    font-weight: 700;
-    color: var(--primary);
-    margin-bottom: 4px;
-  }
-  .pair-sub { font-size: 14px; color: var(--muted); }
-  .pair-body {
-    display: grid;
-    grid-template-columns: 1fr auto 1fr;
-    gap: 16px;
-    align-items: start;
-    margin-bottom: 24px;
-    background: var(--bg);
-    border-radius: 4px;
-    padding: 20px;
-  }
-  .pair-component strong {
-    display: block;
-    font-size: 15px;
-    color: var(--primary);
-    margin: 8px 0 6px;
-  }
-  .pair-component p { font-size: 13px; color: var(--muted); margin: 0; }
-  .comp-badge {
-    display: inline-block;
-    background: var(--warning);
-    color: var(--white);
-    font-size: 11px;
-    font-weight: 700;
-    padding: 2px 8px;
-    border-radius: 3px;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-  }
-  .pair-divider {
-    font-size: 28px;
-    font-weight: 700;
-    color: var(--border);
-    text-align: center;
-    padding-top: 28px;
-  }
-  .pair-card .btn-open {
-    display: inline-block;
-    background: var(--warning);
-    color: var(--white);
-    text-decoration: none;
-    font-size: 14px;
-    font-weight: 600;
-    padding: 10px 22px;
-    border-radius: 4px;
-    transition: background 0.2s;
-  }
-  .pair-card .btn-open:hover { background: #D68910; }
+    /* ── PRESSE-KARTEN ── */
+    .press-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+    .press-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 20px 22px;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 2px 8px rgba(0,0,0,.06);
+    }
+    .press-head {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 12px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--border);
+    }
+    .press-mark {
+      flex-shrink: 0;
+      width: 56px;
+      text-align: center;
+      font-size: 26px;
+      line-height: 1.1;
+    }
+    .press-mark small {
+      display: block;
+      font-size: 10px;
+      color: var(--muted);
+      line-height: 1.3;
+      margin-top: 4px;
+    }
+    .press-mark.stars {
+      width: 84px;
+      color: #F39C12;
+      font-size: 16px;
+      line-height: 1.5;
+      letter-spacing: 1px;
+      white-space: nowrap;
+      overflow: visible;
+    }
+    .press-mark.stars small { color: var(--muted); letter-spacing: 0; margin-top: 6px; }
+    .press-head h3 { font-size: 15px; font-weight: 700; color: var(--primary); }
+    .press-head span { font-size: 11px; color: var(--muted); }
+    .press-card > p { font-size: 13px; color: var(--muted); line-height: 1.6; flex: 1; margin-bottom: 14px; }
+    .press-links { display: flex; flex-direction: column; gap: 6px; }
+    .press-links a {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      background: #F7F9FA;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 7px 12px;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--blue);
+      text-decoration: none;
+      transition: background .2s;
+    }
+    .press-links a:hover { background: #EBF5FB; }
+    .press-links a em {
+      font-style: normal;
+      font-weight: 400;
+      color: var(--muted);
+      white-space: nowrap;
+    }
+    .press-note { font-size: 12px; color: var(--muted); margin-top: 10px; }
+    .press-note a { color: var(--blue); text-decoration: none; font-weight: 600; }
+    .press-note a:hover { text-decoration: underline; }
 
-  /* ── INFO BOX ── */
-  .info-box {
-    background: var(--white);
-    border-radius: 6px;
-    border-left: 4px solid var(--info);
-    padding: 20px 24px;
-    box-shadow: 0 1px 4px rgba(0,0,0,0.06);
-    font-size: 14px;
-    color: var(--muted);
-  }
-  .info-box a { color: var(--info); font-weight: 600; text-decoration: none; }
-  .info-box a:hover { text-decoration: underline; }
+    /* ── INFO-BOX ── */
+    .info-box {
+      background: #EBF5FB;
+      border-left: 4px solid var(--blue);
+      border-radius: 0 4px 4px 0;
+      padding: 14px 18px;
+      font-size: 13px;
+      line-height: 1.6;
+      margin-bottom: 32px;
+      color: #1A5276;
+    }
+    .info-box a { color: var(--blue); font-weight: 600; text-decoration: none; }
+    .info-box a:hover { text-decoration: underline; }
 
-  /* ── FOOTER ── */
-  footer {
-    background: var(--primary);
-    color: var(--light);
-    text-align: center;
-    padding: 22px 40px;
-    font-size: 13px;
-    line-height: 1.9;
-  }
-  footer a { color: var(--light); }
-</style>
+    /* ── FOOTER ── */
+    footer {
+      background: var(--primary);
+      color: var(--border);
+      text-align: center;
+      padding: 14px 20px;
+      font-size: 12px;
+    }
+    footer a { color: var(--border); text-decoration: none; }
+    footer a:hover { color: #fff; }
+
+    @media (max-width: 640px) {
+      .header-inner { flex-direction: column; align-items: flex-start; }
+      header { padding: 20px; }
+      .hero  { padding: 0 20px 28px; }
+      .pair-body { grid-template-columns: 1fr; }
+      .pair-divider { padding-top: 0; }
+    }
+  </style>
 </head>
 <body>
 
+<!-- HEADER -->
 <header>
-  <h1>S-IT Software Tools</h1>
-  <p class="tagline">Professionelle Windows-Freeware von Sattler IT-Service, Greifenstein</p>
+  <div class="header-inner">
+    <div class="logo">
+      <span class="logo-sit">S-IT</span>
+      <span class="logo-name">&nbsp;Software Tools</span>
+    </div>
+    <span class="header-sub">Sattler IT-Service, Greifenstein</span>
+    <span class="header-badge">Freeware · Portable · Windows</span>
+  </div>
 </header>
 
+<!-- NAV -->
 <nav>
   <a href="ueber-uns.html">Über uns</a>
   <a href="impressum.html">Impressum &amp; Kontakt</a>
 </nav>
+<div class="divider"></div>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-inner">
+    <h1>Professionelle Windows-Freeware &ndash; aus der täglichen Praxis eines IT-Servicebetriebs</h1>
+    <p>Alle S-IT-Tools entstehen aus dem Alltag beim Kunden: Netzwerke prüfen, Daten sichern, Datenträger kontrollieren, Dateien wiederfinden. Sie sind kostenlos, laufen unter Windows und werden aktiv weiterentwickelt. Downloads, Screenshots und Changelogs stehen auf den jeweiligen Projektseiten.</p>
+    <div class="hero-meta">
+      <span class="hero-chip">Kostenlos</span>
+      <span class="hero-chip">Ohne Registrierung</span>
+      <span class="hero-chip">Deutschsprachig</span>
+    </div>
+  </div>
+</div>
 
 <main>
 
-  <p class="section-title">Verfügbare Tools</p>
+  <!-- TOOLS -->
+  <div class="section-title">🧰 Verfügbare Tools</div>
+  <div class="cards">
 
-  <div class="tools">
-
-    <div class="tool-card">
-      <span class="t-icon">🌐</span>
-      <h2>LAN Device Scanner</h2>
+    <div class="card">
+      <div class="card-icon">🌐</div>
+      <h3>LAN Device Scanner</h3>
       <p>Erkennt Geräte, Hersteller und Betriebssysteme im Netzwerk. Mit Internet-Speedtest, LAN-Performance-Messung, WLAN-Analyse und LOG-Manager.</p>
-      <a class="btn-open" href="https://sattlerit.github.io/sit-lanscanner/">Zur Projektseite</a>
+      <a class="btn-project" href="https://sattlerit.github.io/sit-lanscanner/">→ Zur Projektseite</a>
     </div>
 
-    <div class="tool-card">
-      <span class="t-icon">💾</span>
-      <h2>BRC – Backup · Restore · Cleanup</h2>
+    <div class="card">
+      <div class="card-icon">💾</div>
+      <h3>BRC – Backup · Restore · Cleanup</h3>
       <p>Sichert Benutzerdaten auf externe Laufwerke, stellt sie wieder her und bereinigt veraltete Backup-Stände – mit Setup-Installer und Hilfe-Dateien.</p>
-      <a class="btn-open" href="https://sattlerit.github.io/sit-brc/">Zur Projektseite</a>
+      <a class="btn-project" href="https://sattlerit.github.io/sit-brc/">→ Zur Projektseite</a>
     </div>
 
-    <div class="tool-card">
-      <span class="t-icon">📋</span>
-      <h2>3Kopier</h2>
+    <div class="card">
+      <div class="card-icon">📋</div>
+      <h3>3Kopier</h3>
       <p>Kopiert oder verschiebt Dateien in einem Durchlauf auf bis zu drei Ziele – mit Profilen, Fortschrittsanzeige und optionalem Herunterfahren.</p>
-      <a class="btn-open" href="https://sattlerit.github.io/sit-3kopier/">Zur Projektseite</a>
-    </div>
-    
-   <div class="tool-card">
-      <span class="t-icon">🔍</span>
-      <h2>File Finder</h2>
-      <p>Ein einfaches Windows-Suchtool zum schnellen Wiederfinden von Dateien nach Name, Typ, Datum und Größe – ideal für Anwender ohne technische Vorkenntnisse.</p>
-      <a class="btn-open" href="https://sattlerit.github.io/S-IT-FileFinder/">Zur Projektseite</a>
+      <a class="btn-project" href="https://sattlerit.github.io/sit-3kopier/">→ Zur Projektseite</a>
     </div>
 
-    <div class="tool-card">
-      <span class="t-icon">💿</span>
-      <h2>SSD-Check</h2>
+    <div class="card">
+      <div class="card-icon">🔍</div>
+      <h3>File Finder</h3>
+      <p>Ein einfaches Windows-Suchtool zum schnellen Wiederfinden von Dateien nach Name, Typ, Datum und Größe – ideal für Anwender ohne technische Vorkenntnisse.</p>
+      <a class="btn-project" href="https://sattlerit.github.io/S-IT-FileFinder/">→ Zur Projektseite</a>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">💿</div>
+      <h3>SSD-Check</h3>
       <p>Prüft den Gesundheitszustand von SATA- und NVMe-SSDs per SMART-Analyse – mit Ampel-Bewertung, Hersteller-Erkennung und HTML-Bericht. Für den eigenen PC, Laptop oder den Gebrauchtkauf.</p>
-      <a class="btn-open" href="https://sattlerit.github.io/sit-ssd-check/">Zur Projektseite</a>
+      <a class="btn-project" href="https://sattlerit.github.io/sit-ssd-check/">→ Zur Projektseite</a>
     </div>
 
   </div>
 
-  <p class="section-title" style="margin-top:52px">Neu: Tool-Paket</p>
-
+  <!-- TOOL-PAKET -->
+  <div class="section-title">🔐 Tool-Paket</div>
   <div class="pair-card">
     <div class="pair-header">
       <span class="pair-icon">🔐</span>
       <div>
-        <h2>S-IT USB-Lock</h2>
+        <h3>S-IT USB-Lock</h3>
         <p class="pair-sub">Beliebige USB-Datenträger einmalig verschlüsseln — danach per Knopfdruck <strong>Entsperren</strong> und <strong>Sperren</strong>.</p>
       </div>
     </div>
@@ -303,10 +437,83 @@
         <p>Entsperrt und sperrt den eingerichteten Datenträger auf Knopfdruck – ohne Installation, auf jedem Windows-PC direkt vom Datenträger startbar. Egal ob USB-Stick, SSD oder HDD — kostenlos einen eigenen Datensafe nutzen.</p>
       </div>
     </div>
-    <a class="btn-open" href="https://sattlerit.github.io/sit-usblock/">Zur Projektseite</a>
+    <a class="btn-project" href="https://sattlerit.github.io/sit-usblock/">→ Zur Projektseite</a>
   </div>
 
-  <div class="info-box" style="margin-top:32px">
+  <!-- ERWÄHNUNGEN -->
+  <div class="section-title">🏆 Erwähnungen &amp; Reviews</div>
+  <div class="press-cards">
+
+    <div class="press-card">
+      <div class="press-head">
+        <div class="press-mark">📰<small>Artikel &amp;<br>Community</small></div>
+        <div>
+          <h3>Deskmodder.de</h3>
+          <span>Einer der aktivsten deutschen Windows-Blogs</span>
+        </div>
+      </div>
+      <p>Gleich mehrere S-IT-Tools wurden dort vorgestellt. Aus den Kommentaren der Community sind zahlreiche Verbesserungen direkt in die Programme eingeflossen – besonders beim SSD-Check.</p>
+      <div class="press-links">
+        <a href="https://www.deskmodder.de/blog/2026/03/27/s-it-lan-scanner-geraete-im-einen-netzwerk-scannen-und-auflisten/" target="_blank">LAN Device Scanner <em>→ Artikel</em></a>
+        <a href="https://www.deskmodder.de/blog/2026/07/14/3kopier-universelles-und-portables-kopiertool-nicht-nur-fuer-nas/" target="_blank">S-IT-3Kopier <em>→ Artikel</em></a>
+        <a href="https://www.deskmodder.de/blog/2026/06/27/s-it-ssd-check-pruefen-ob-die-ssd-nvme-noch-in-ordnung-ist/" target="_blank">S-IT SSD-Check <em>→ Artikel</em></a>
+        <a href="https://www.deskmodder.de/blog/2026/04/09/s-it-brc-backup-programm-mit-backup-restore-und-auch-einem-cleanup-tool/" target="_blank">S-IT-BRC <em>→ Artikel</em></a>
+      </div>
+    </div>
+
+    <div class="press-card">
+      <div class="press-head">
+        <div class="press-mark stars">★★★★½<small>Redaktions-<br>Bewertung</small></div>
+        <div>
+          <h3>WinTotal.de</h3>
+          <span>Bekanntes Portal für Windows-Freeware</span>
+        </div>
+      </div>
+      <p>Von der WinTotal-Redaktion besprochen und bewertet – empfohlen unter anderem für kleine Firmen, Vereine und den privaten Einsatz.</p>
+      <div class="press-links">
+        <a href="https://www.wintotal.de/download/s-it-3kopier/" target="_blank">S-IT-3Kopier <em>4,7 von 5</em></a>
+        <a href="https://www.wintotal.de/download/s-it-ssd-check/" target="_blank">S-IT SSD-Check <em>4,5 von 5</em></a>
+        <a href="https://www.wintotal.de/download/s-it-lan-device-scanner/" target="_blank">LAN Device Scanner <em>→ Eintrag</em></a>
+        <a href="https://www.wintotal.de/download/s-it-brc/" target="_blank">S-IT-BRC <em>→ Eintrag</em></a>
+      </div>
+    </div>
+
+    <div class="press-card">
+      <div class="press-head">
+        <div class="press-mark" style="font-size:24px;font-weight:700;color:var(--green)">Gut<small>Wertung der<br>CHIP-Redaktion</small></div>
+        <div>
+          <h3>CHIP.de</h3>
+          <span>Eines der größten deutschen Download-Portale</span>
+        </div>
+      </div>
+      <p>Getestet und bewertet von der CHIP-Redaktion. Hervorgehoben werden beim SSD-Check das Ampelsystem, die SMART-Auswertung und der HTML-Prüfbericht, bei 3Kopier die drei gleichzeitigen Aufträge und die Zeitsteuerung.</p>
+      <div class="press-links">
+        <a href="https://www.chip.de/downloads/S-IT-SSD-Check-Gesundheits-Check-Up-fuer-SSDs_187167998.html" target="_blank">S-IT SSD-Check <em>Wertung: Gut</em></a>
+        <a href="https://www.chip.de/downloads/S-IT-3Kopier_187195351.html" target="_blank">S-IT-3Kopier <em>Wertung: Gut</em></a>
+      </div>
+      <p class="press-note">Zusätzlich als Testbericht auf MSN:
+        <a href="https://www.msn.com/de-de/technik/software/backups-wie-profis-gratis-programm-sichert-ihre-dateien-gleichzeitig-an-drei-orten/ar-AA2822SJ" target="_blank">„Backups wie Profis“</a>
+      </p>
+    </div>
+
+    <div class="press-card">
+      <div class="press-head">
+        <div class="press-mark">🏅<small>Empfehlung der<br>Redaktion</small></div>
+        <div>
+          <h3>WinFuture.de</h3>
+          <span>Reichweitenstarkes deutsches IT-Portal</span>
+        </div>
+      </div>
+      <p>Vorgestellt und empfohlen von der WinFuture-Redaktion: S-IT SSD-Check wird dort als gute Alternative zu Herstellertools wie Samsung Magician oder dem Western Digital Dashboard beschrieben.</p>
+      <div class="press-links">
+        <a href="https://winfuture.de/download/product/4212/" target="_blank">S-IT SSD-Check <em>→ Eintrag</em></a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- INFO -->
+  <div class="info-box">
     Alle Tools sind <strong>kostenlose Freeware</strong> und werden aktiv weiterentwickelt.
     Downloads und Releases sind auf den jeweiligen Projektseiten verfügbar.
     Fragen und Kontakt: <a href="impressum.html">Impressum &amp; Kontakt</a>
@@ -314,9 +521,10 @@
 
 </main>
 
+<!-- FOOTER -->
 <footer>
-  © 2026 Hans Udo Sattler &nbsp;·&nbsp; Sattler IT-Service, Greifenstein &nbsp;·&nbsp;
-  <a href="impressum.html">Impressum</a> &nbsp;·&nbsp;
+  © 2026 Sattler IT-Service, Greifenstein &nbsp;•&nbsp; Autor: Hans Udo Sattler &nbsp;•&nbsp;
+  <a href="impressum.html">Impressum</a> &nbsp;•&nbsp;
   <a href="ueber-uns.html">Über uns</a>
 </footer>
 
