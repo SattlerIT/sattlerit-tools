@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>S-IT Software Tools &ndash; Neuigkeiten</title>
+  <link rel="icon" type="image/x-icon" href="s-it-icon140.ico">
+  <style>
+    :root {
+      --primary:   #2C3E50;
+      --red:       #E74C3C;
+      --green:     #27AE60;
+      --blue:      #2980B9;
+      --orange:    #E67E22;
+      --light:     #ECF0F1;
+      --bg:        #F5F5F5;
+      --card:      #FFFFFF;
+      --border:    #BDC3C7;
+      --text:      #2C3E50;
+      --muted:     #7F8C8D;
+      --font:      'Segoe UI', Arial, sans-serif;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: var(--font); background: var(--bg); color: var(--text); }
+
+    /* ── HEADER ── */
+    header {
+      background: var(--primary);
+      padding: 28px 40px 24px;
+    }
+    .header-inner {
+      max-width: 980px;
+      margin: 0 auto;
+      display: flex;
+      align-items: flex-end;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .logo { display: flex; align-items: baseline; gap: 0; }
+    .logo-sit  { color: var(--red); font-size: 36px; font-weight: 700; line-height: 1; }
+    .logo-name { color: #fff;       font-size: 36px; font-weight: 300; line-height: 1; }
+    .header-sub {
+      color: var(--border);
+      font-size: 13px;
+      padding-bottom: 4px;
+    }
+    .header-badge {
+      margin-left: auto;
+      background: rgba(255,255,255,.08);
+      border: 1px solid rgba(255,255,255,.2);
+      color: var(--light);
+      font-size: 12px;
+      padding: 5px 14px;
+      border-radius: 20px;
+      white-space: nowrap;
+    }
+
+    /* ── NAV ── */
+    nav {
+      background: #34495E;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    nav a {
+      color: var(--light);
+      text-decoration: none;
+      padding: 11px 22px;
+      font-size: 13px;
+      transition: background .2s;
+    }
+    nav a:hover { background: var(--primary); color: #fff; }
+    nav a.active { background: var(--primary); color: #fff; font-weight: 600; }
+
+    /* Rote Trennlinie */
+    .divider { height: 3px; background: var(--red); }
+
+    /* ── HERO ── */
+    .hero {
+      background: var(--primary);
+      padding: 0 40px 36px;
+    }
+    .hero-inner {
+      max-width: 980px;
+      margin: 0 auto;
+      padding-top: 32px;
+    }
+    .hero h1 {
+      font-size: 22px;
+      font-weight: 600;
+      color: #fff;
+      margin-bottom: 12px;
+      line-height: 1.4;
+      max-width: 780px;
+    }
+    .hero p {
+      color: var(--border);
+      font-size: 14px;
+      line-height: 1.7;
+      max-width: 780px;
+    }
+
+    /* ── MAIN ── */
+    main {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 40px 20px 60px;
+    }
+
+    /* ── BEITRÄGE ── */
+    .post {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--red);
+      border-radius: 0 6px 6px 0;
+      padding: 22px 26px 24px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 8px rgba(0,0,0,.06);
+    }
+    .post-meta {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 10px;
+    }
+    .post-date {
+      font-size: 12px;
+      color: var(--muted);
+      font-weight: 600;
+    }
+    .post-tool {
+      display: inline-block;
+      background: #EAF2F8;
+      border: 1px solid #AED6F1;
+      color: #1B4F72;
+      font-size: 11px;
+      font-weight: 600;
+      padding: 2px 10px;
+      border-radius: 20px;
+      text-decoration: none;
+    }
+    .post-tool:hover { background: #D6EAF8; }
+    /* Art des Beitrags: Neu / Überarbeitung / In Vorbereitung / Ausblick */
+    .label {
+      display: inline-block;
+      color: #fff;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 3px 10px;
+      border-radius: 3px;
+      text-transform: uppercase;
+      letter-spacing: .5px;
+    }
+    .label.neu   { background: #E74C3C; }
+    .label.ueber { background: #CA6F1E; }
+    .label.vorb  { background: #2980B9; }
+    .label.aus   { background: #1E8449; }
+    .post.neu   { border-left-color: #E74C3C; }
+    .post.ueber { border-left-color: #CA6F1E; }
+    .post.vorb  { border-left-color: #2980B9; }
+    .post.aus   { border-left-color: #1E8449; }
+
+    .post h2 {
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 10px;
+      line-height: 1.4;
+    }
+    .post p {
+      font-size: 14px;
+      color: #4D5D6C;
+      line-height: 1.7;
+      margin-bottom: 10px;
+    }
+    .post p:last-child { margin-bottom: 0; }
+    .post a.more {
+      color: var(--blue);
+      font-weight: 600;
+      text-decoration: none;
+      font-size: 13px;
+    }
+    .post a.more:hover { text-decoration: underline; }
+
+    /* ── BILDER IM BEITRAG ── */
+    .post-images {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin: 16px 0 6px;
+    }
+    .post-images figure { margin: 0; }
+    .post-images img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+    }
+    .post-images figcaption {
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: 6px;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--primary);
+      color: var(--border);
+      text-align: center;
+      padding: 14px 20px;
+      font-size: 12px;
+    }
+    footer a { color: var(--border); text-decoration: none; }
+    footer a:hover { color: #fff; }
+
+    @media (max-width: 640px) {
+      .header-inner { flex-direction: column; align-items: flex-start; }
+      header { padding: 20px; }
+      .hero  { padding: 0 20px 28px; }
+      .header-badge { margin-left: 0; }
+      .post { padding: 18px 18px 20px; }
+      .post-images { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="header-inner">
+    <div class="logo">
+      <span class="logo-sit">S-IT</span>
+      <span class="logo-name">&nbsp;Software Tools</span>
+    </div>
+    <span class="header-sub">Sattler IT-Service, Greifenstein</span>
+    <span class="header-badge">Neuigkeiten</span>
+  </div>
+</header>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html">Software-Tools</a>
+  <a href="neuigkeiten.html" class="active">Neuigkeiten</a>
+  <a href="ueber-uns.html">Über uns</a>
+  <a href="impressum.html">Impressum &amp; Kontakt</a>
+  <a href="index-en.html">English</a>
+</nav>
+<div class="divider"></div>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-inner">
+    <h1>Neuigkeiten aus der Entwicklung</h1>
+    <p>Ankündigungen und Ausblicke zu den S-IT-Tools: welche Programme gerade weiterentwickelt werden, wo neue Oberflächen und Sprachfassungen entstehen und was als Nächstes geplant ist. Der neueste Beitrag steht oben.</p>
+  </div>
+</div>
+
+<main>
+
+  <!--
+    NEUER BEITRAG: Einen Block <article> ... </article> kopieren, ganz oben
+    unter dieser Anmerkung einfügen und Datum, Art, Tool, Überschrift und
+    Text ändern.
+    Art: class="post neu" + <span class="label neu">Neu</span>
+         class="post ueber" + <span class="label ueber">Überarbeitung</span>
+         class="post vorb" + <span class="label vorb">In Vorbereitung</span>
+         class="post aus"  + <span class="label aus">Ausblick</span>
+    Die id (z. B. "smartpack") muss eindeutig sein; auf sie verweist der
+    Kasten "Aktuelles" auf der Startseite.
+  -->
+
+  <!-- BEITRAG -->
+  <article class="post neu" id="smartpack">
+    <div class="post-meta">
+      <span class="label neu">Neu</span>
+      <span class="post-date">25.10.2026</span>
+      <a class="post-tool" href="https://sattlerit.github.io/sit-smartpack/">SmartPack</a>
+    </div>
+    <h2>Neues Tool: SmartPack</h2>
+    <p>SmartPack packt Ordner als ISO-Datei oder 7z-/ZIP-Archiv, auch mehrere Ordner von verschiedenen Laufwerken in einer Datei. Feste Aufgaben liegen auf zehn Kurzwahl-Knöpfen und werden mit einem Klick gestartet.</p>
+    <p>SmartPack ist von Anfang an mehrsprachig und steht auf Deutsch, Englisch und Niederländisch zur Verfügung.</p>
+  </article>
+
+  <!-- BEITRAG -->
+  <article class="post ueber" id="lanscanner-41">
+    <div class="post-meta">
+      <span class="label ueber">Überarbeitung</span>
+      <span class="post-date">25.10.2026</span>
+      <a class="post-tool" href="https://sattlerit.github.io/sit-lanscanner/">LAN Device Scanner</a>
+    </div>
+    <h2>LAN Device Scanner 4.1: Gerätetyp und Gerätename</h2>
+    <p>Version 4.1 ordnet die gefundenen Geräte nach Gerätetyp ein und zeigt, wo ermittelbar, den Gerätenamen. Eigene Angaben zum Gerätetyp haben immer Vorrang vor der automatischen Einordnung.</p>
+    <p>Die Verbindungsqualität der Geräte lässt sich einfacher abrufen.</p>
+  </article>
+
+  <!-- BEITRAG -->
+  <article class="post ueber" id="brc-oberflaeche">
+    <div class="post-meta">
+      <span class="label ueber">Überarbeitung</span>
+      <span class="post-date">25.10.2026</span>
+      <a class="post-tool" href="https://sattlerit.github.io/sit-brc/">BRC</a>
+    </div>
+    <h2>BRC wird grundlegend überarbeitet</h2>
+    <p>Die nächste Version von BRC bekommt neben der bisherigen Dateisicherung die Sicherungsart „Backup“: Alle ausgewählten Ordner werden in einer einzigen Datei mit der Endung .brc gesichert. Diese Datei ist ein Standard-ZIP-Archiv. Ohne Kennwort lässt sie sich auch mit dem Windows-Explorer oder 7-Zip öffnen.</p>
+    <p>Auf Wunsch wird das Backup mit einem Kennwort verschlüsselt (AES-256). Dann sind auch die Datei- und Ordnernamen nicht lesbar, und die Sicherung lässt sich nur mit BRC wiederherstellen. Dateien, die in einer Sicherung mehrfach vorkommen, werden nur einmal gespeichert. Das spart Platz am Sicherungsziel.</p>
+    <p>BRC behält auf Wunsch mehrere ältere Sicherungsstände und entfernt die jeweils ältesten selbst. Eine Prüffunktion stellt fest, ob eine Sicherung vollständig und lesbar ist. Beim Wiederherstellen lassen sich einzelne Ordner und Dateien auswählen.</p>
+    <p>Dazu kommt eine neue Oberfläche: Links eine Seitenleiste mit Übersicht, Backup, Restore und Cleanup, daneben ein heller Arbeitsbereich mit klar gegliederten Karten. Die Farben lassen sich über abgestimmte Farbschemata anpassen.</p>
+    <div class="post-images">
+      <figure>
+        <a href="bilder/brc-backup.png"><img src="bilder/brc-backup.png" alt="BRC, Seite Backup in der neuen Oberfläche" loading="lazy"></a>
+        <figcaption>Seite „Backup“</figcaption>
+      </figure>
+      <figure>
+        <a href="bilder/brc-restore.png"><img src="bilder/brc-restore.png" alt="BRC, Seite Restore in der neuen Oberfläche" loading="lazy"></a>
+        <figcaption>Seite „Restore“</figcaption>
+      </figure>
+    </div>
+  </article>
+
+  <!-- BEITRAG -->
+  <article class="post vorb" id="lanscanner-sprachen">
+    <div class="post-meta">
+      <span class="label vorb">In Vorbereitung</span>
+      <span class="post-date">25.10.2026</span>
+      <a class="post-tool" href="https://sattlerit.github.io/sit-lanscanner/">LAN Device Scanner</a>
+    </div>
+    <h2>LAN Device Scanner wird mehrsprachig</h2>
+    <p>Auf Anregung von Nutzern entsteht eine englische Fassung des LAN Device Scanners. Weitere Sprachen sind geplant.</p>
+    <p>Die Sprachfassungen werden auf Rechnern mit unterschiedlichen Windows-Landessprachen getestet.</p>
+  </article>
+
+  <!-- BEITRAG -->
+  <article class="post neu" id="videos">
+    <div class="post-meta">
+      <span class="label neu">Neu</span>
+      <span class="post-date">25.10.2026</span>
+    </div>
+    <h2>Kurzvideos zu den Tools</h2>
+    <p>Auf den Projektseiten von LAN Device Scanner, 3Kopier und File Finder zeigen kurze Videos die wichtigsten Funktionen.</p>
+  </article>
+
+  <!-- BEITRAG -->
+  <article class="post aus" id="neue-oberflaechen">
+    <div class="post-meta">
+      <span class="label aus">Ausblick</span>
+      <span class="post-date">25.10.2026</span>
+    </div>
+    <h2>Neue Oberflächen und weitere Sprachen</h2>
+    <p>Nach SmartPack und BRC erhalten weitere S-IT-Tools schrittweise die neue Gestaltung mit Seitenleiste, für mehr Übersicht und ein zeitgemäßes Erscheinungsbild.</p>
+    <p>Die Internationalisierung der Tools wird weiter verbessert.</p>
+  </article>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+  © 2026 Sattler IT-Service, Greifenstein &nbsp;•&nbsp; Autor: Hans Udo Sattler &nbsp;•&nbsp;
+  <a href="impressum.html">Impressum</a> &nbsp;•&nbsp; <a href="ueber-uns.html">Über uns</a>
+</footer>
+
+</body>
+</html>

@@ -339,6 +339,60 @@
     .info-box a { color: var(--blue); font-weight: 600; text-decoration: none; }
     .info-box a:hover { text-decoration: underline; }
 
+    /* ── KASTEN "AKTUELLES" (verweist auf Beiträge in neuigkeiten.html) ── */
+    .news-box {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 32px;
+      box-shadow: 0 2px 8px rgba(0,0,0,.06);
+      overflow: hidden;
+    }
+    .news-item {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 11px 20px;
+      border-bottom: 1px solid #E5E8E8;
+      text-decoration: none;
+      color: var(--primary);
+      transition: background .2s;
+    }
+    .news-item:hover { background: #F7F9FA; }
+    .news-item strong { font-size: 14px; flex: 1; }
+    .news-item small { font-size: 12px; color: var(--muted); white-space: nowrap; }
+    .label {
+      flex-shrink: 0;
+      width: 128px;
+      text-align: center;
+      color: #fff;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 3px 0;
+      border-radius: 3px;
+      text-transform: uppercase;
+      letter-spacing: .5px;
+    }
+    .label.neu   { background: #E74C3C; }
+    .label.ueber { background: #CA6F1E; }
+    .label.vorb  { background: #2980B9; }
+    .label.aus   { background: #1E8449; }
+    .news-all {
+      display: block;
+      text-align: right;
+      padding: 9px 20px;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--blue);
+      text-decoration: none;
+      background: #F7F9FA;
+    }
+    .news-all:hover { text-decoration: underline; }
+    @media (max-width: 640px) {
+      .news-item { flex-wrap: wrap; gap: 6px 12px; }
+      .news-item strong { flex-basis: 100%; order: 3; }
+    }
+
     /* ── FOOTER ── */
     footer {
       background: var(--primary);
@@ -376,6 +430,7 @@
 <!-- NAV -->
 <nav>
   <a href="index.html" class="active">Software-Tools</a>
+  <a href="neuigkeiten.html">Neuigkeiten</a>
   <a href="ueber-uns.html">Über uns</a>
   <a href="impressum.html">Impressum &amp; Kontakt</a>
   <a href="index-en.html">English</a>
@@ -396,6 +451,71 @@
 </div>
 
 <main>
+
+  <!-- KASTEN "AKTUELLES": füllt sich beim Aufruf selbst mit den vier neuesten
+       Beiträgen aus neuigkeiten.html. Hier muss nichts geändert werden. -->
+  <div class="section-title">📢 Aktuelles</div>
+  <div class="news-box">
+    <div id="news-list">
+      <!-- Ersatzanzeige: erscheint nur, wenn neuigkeiten.html nicht geladen werden kann
+           (z. B. beim Öffnen per Doppelklick auf dem eigenen PC). Online wird sie
+           automatisch durch die aktuellen Beiträge ersetzt. -->
+      <a class="news-item" href="neuigkeiten.html#smartpack">
+        <span class="label neu">Neu</span>
+        <strong>Neues Tool: SmartPack</strong>
+        <small>25.10.2026</small>
+      </a>
+      <a class="news-item" href="neuigkeiten.html#lanscanner-41">
+        <span class="label ueber">Überarbeitung</span>
+        <strong>LAN Device Scanner 4.1: Gerätetyp und Gerätename</strong>
+        <small>25.10.2026</small>
+      </a>
+      <a class="news-item" href="neuigkeiten.html#brc-oberflaeche">
+        <span class="label ueber">Überarbeitung</span>
+        <strong>BRC wird grundlegend überarbeitet</strong>
+        <small>25.10.2026</small>
+      </a>
+      <a class="news-item" href="neuigkeiten.html#lanscanner-sprachen">
+        <span class="label vorb">In Vorbereitung</span>
+        <strong>LAN Device Scanner wird mehrsprachig</strong>
+        <small>25.10.2026</small>
+      </a>
+    </div>
+    <a class="news-all" href="neuigkeiten.html">Alle Neuigkeiten →</a>
+  </div>
+  <script>
+    (function () {
+      var ANZAHL = 4;
+      fetch('neuigkeiten.html', { cache: 'no-cache' })
+        .then(function (r) { return r.text(); })
+        .then(function (html) {
+          var doc = new DOMParser().parseFromString(html, 'text/html');
+          var posts = doc.querySelectorAll('article.post');
+          var list = document.getElementById('news-list');
+          if (posts.length) list.innerHTML = '';
+          for (var i = 0; i < posts.length && i < ANZAHL; i++) {
+            var p = posts[i];
+            var label = p.querySelector('.label');
+            var title = p.querySelector('h2');
+            var date  = p.querySelector('.post-date');
+            if (!label || !title) continue;
+            var a = document.createElement('a');
+            a.className = 'news-item';
+            a.href = 'neuigkeiten.html#' + p.id;
+            var l = document.createElement('span');
+            l.className = label.className;
+            l.textContent = label.textContent;
+            var t = document.createElement('strong');
+            t.textContent = title.textContent;
+            var d = document.createElement('small');
+            d.textContent = date ? date.textContent : '';
+            a.appendChild(l); a.appendChild(t); a.appendChild(d);
+            list.appendChild(a);
+          }
+        })
+        .catch(function () { /* Ohne Verbindung bleibt nur der Link "Alle Neuigkeiten" */ });
+    })();
+  </script>
 
   <!-- TOOLS -->
   <div class="section-title">🧰 Verfügbare Tools</div>
