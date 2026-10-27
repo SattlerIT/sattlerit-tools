@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sattler IT-Service &ndash; Privacy policy</title>
+  <link rel="icon" type="image/x-icon" href="s-it-icon140.ico">
+  <style>
+    :root {
+      --primary:   #2C3E50;
+      --red:       #E74C3C;
+      --blue:      #2980B9;
+      --light:     #ECF0F1;
+      --bg:        #F5F5F5;
+      --card:      #FFFFFF;
+      --border:    #BDC3C7;
+      --text:      #2C3E50;
+      --muted:     #7F8C8D;
+      --font:      'Segoe UI', Arial, sans-serif;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: var(--font); background: var(--bg); color: var(--text); }
+
+    /* ── HEADER ── */
+    header {
+      background: var(--primary);
+      padding: 28px 40px 24px;
+    }
+    .header-inner {
+      max-width: 980px;
+      margin: 0 auto;
+      display: flex;
+      align-items: flex-end;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .logo { display: flex; align-items: baseline; gap: 0; }
+    .logo-sit  { color: var(--red); font-size: 36px; font-weight: 700; line-height: 1; }
+    .logo-name { color: #fff;       font-size: 36px; font-weight: 300; line-height: 1; }
+    .header-sub {
+      color: var(--border);
+      font-size: 13px;
+      padding-bottom: 4px;
+    }
+    .header-badge {
+      margin-left: auto;
+      background: rgba(255,255,255,.08);
+      border: 1px solid rgba(255,255,255,.2);
+      color: var(--light);
+      font-size: 12px;
+      padding: 5px 14px;
+      border-radius: 20px;
+      white-space: nowrap;
+    }
+
+    /* ── NAV ── */
+    nav {
+      background: #34495E;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    nav a {
+      color: var(--light);
+      text-decoration: none;
+      padding: 11px 22px;
+      font-size: 13px;
+      transition: background .2s;
+    }
+    nav a:hover { background: var(--primary); color: #fff; }
+    nav a.active { background: var(--primary); color: #fff; font-weight: 600; }
+
+    /* Rote Trennlinie */
+    .divider { height: 3px; background: var(--red); }
+
+    /* ── HERO ── */
+    .hero {
+      background: var(--primary);
+      padding: 0 40px 36px;
+    }
+    .hero-inner {
+      max-width: 980px;
+      margin: 0 auto;
+      padding-top: 32px;
+    }
+    .hero h1 {
+      font-size: 22px;
+      font-weight: 600;
+      color: #fff;
+      margin-bottom: 12px;
+      line-height: 1.4;
+    }
+    .hero p {
+      color: var(--border);
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+    /* ── MAIN ── */
+    main {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 40px 20px 60px;
+    }
+
+    /* ── SECTION TITLE ── */
+    .section-title {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 16px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid var(--red);
+      display: inline-block;
+    }
+    .section-block { margin-bottom: 32px; }
+
+    /* ── KARTEN ── */
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 16px;
+    }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 20px 22px;
+    }
+    .card p { font-size: 14px; line-height: 1.8; }
+    .card .label {
+      display: block;
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: 10px;
+    }
+    .card .label:first-child { margin-top: 0; }
+    .card a { color: var(--blue); text-decoration: none; font-weight: 600; }
+    .card a:hover { text-decoration: underline; }
+    .intl { font-size: 12px; color: var(--muted); font-weight: 400; }
+
+    .card + .card { margin-top: 12px; }
+    .card h2 {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 8px;
+    }
+    .card p + p { margin-top: 8px; }
+    .card ul { margin: 6px 0 0 20px; font-size: 14px; line-height: 1.8; }
+    .stand { font-size: 12px; color: var(--muted); margin-top: 20px; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--primary);
+      color: var(--border);
+      text-align: center;
+      padding: 14px 20px;
+      font-size: 12px;
+    }
+    footer a { color: var(--border); text-decoration: none; }
+    footer a:hover { color: #fff; }
+
+    @media (max-width: 640px) {
+      .header-inner { flex-direction: column; align-items: flex-start; }
+      header { padding: 20px; }
+      .hero  { padding: 0 20px 28px; }
+      .header-badge { margin-left: 0; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="header-inner">
+    <div class="logo">
+      <span class="logo-sit">S-IT</span>
+      <span class="logo-name">&nbsp;Sattler IT-Service</span>
+    </div>
+    <span class="header-sub">Greifenstein, Mittelhessen</span>
+    <span class="header-badge">Privacy</span>
+  </div>
+</header>
+
+<!-- NAV -->
+<nav>
+  <a href="index-en.html">Software tools</a>
+  <a href="news-en.html">News</a>
+  <a href="about-us.html">About us</a>
+  <a href="impressum.html">Legal notice &amp; contact</a>
+  <a href="datenschutz.html">Deutsch</a>
+</nav>
+<div class="divider"></div>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-inner">
+    <h1>Privacy policy</h1>
+    <p>Information under Art. 13 GDPR about the S-IT tools websites</p>
+  </div>
+</div>
+
+<main>
+
+  <div class="section-block">
+    <div class="section-title">📇 Controller</div>
+    <div class="card">
+      <p>
+        Hans Udo Sattler<br>
+        Sattler IT-Service<br>
+        Gartenstr. 4<br>
+        35753 Greifenstein, Germany<br>
+        Phone: <a href="tel:+4927792270009">+49 2779 2270009</a><br>
+        Email: <a href="mailto:kontakt@sattler-it.de">kontakt@sattler-it.de</a>
+      </p>
+    </div>
+    <div class="card">
+      <h2>Scope</h2>
+      <p>This privacy policy applies to the tool overview at sattlerit.github.io/sattlerit-tools, to the project pages of the S-IT tools at sattlerit.github.io, and to downloads of the programs via GitHub.</p>
+    </div>
+  </div>
+
+  <div class="section-block">
+    <div class="section-title">🌐 Hosting of the pages</div>
+    <div class="card">
+      <h2>Hosting by GitHub</h2>
+      <p>The pages are provided via the GitHub Pages service. The provider is GitHub B.V., Prins Bernhardplein 200, 1097 JB Amsterdam, Netherlands, or GitHub, Inc., 88 Colin P. Kelly Jr. St., San Francisco, CA 94107, USA.</p>
+      <p>When a page is accessed, GitHub processes technically necessary data, in particular the IP address, the date and time of access, the page accessed and information about the browser and operating system. According to GitHub, visitors' IP addresses are stored for security purposes. We have no access to this data.</p>
+      <p>The legal basis is Art. 6(1)(f) GDPR. Our legitimate interest is the secure and reliable provision of the pages and programs.</p>
+      <p>Data may be transferred to the USA in this process. GitHub is certified under the EU-U.S. Data Privacy Framework; the transfer is based on the adequacy decision of the European Commission (Art. 45 GDPR). Details can be found in <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement">GitHub's privacy statement</a>.</p>
+    </div>
+    <div class="card">
+      <h2>Downloads</h2>
+      <p>The program files are provided via GitHub. When downloading, GitHub processes the data mentioned above in the same way.</p>
+    </div>
+  </div>
+
+  <div class="section-block">
+    <div class="section-title">🍪 No cookies, no statistics, no third-party content</div>
+    <div class="card">
+      <p>These pages do not set cookies and do not use statistics or analytics services. No content from other providers is embedded, i.e. no third-party fonts, no embedded videos and no social media buttons. Images and videos are delivered from the same pages via GitHub Pages.</p>
+    </div>
+  </div>
+
+  <div class="section-block">
+    <div class="section-title">✉ Contact</div>
+    <div class="card">
+      <p>If you contact us by email or phone, we process your details (for example name, email address and the content of your message) in order to answer your enquiry. The legal basis is Art. 6(1)(b) GDPR where the enquiry relates to a contract, otherwise Art. 6(1)(f) GDPR. The data is deleted as soon as it is no longer needed for handling the enquiry, unless statutory retention obligations apply.</p>
+    </div>
+  </div>
+
+  <div class="section-block">
+    <div class="section-title">🔗 Links to other websites</div>
+    <div class="card">
+      <p>The pages contain links to other providers, for example to download portals, press articles and PayPal. These links are plain references. Data is only transferred when you click a link; the privacy policy of the respective provider then applies.</p>
+    </div>
+    <div class="card">
+      <h2>Donations via PayPal</h2>
+      <p>If you donate via the PayPal link, we receive the payment details from PayPal, in particular name, email address and amount. We use them only to process and record the donation and retain them within the statutory retention periods. The legal basis is Art. 6(1)(b) and (c) GDPR.</p>
+    </div>
+  </div>
+
+  <div class="section-block">
+    <div class="section-title">⚖ Your rights</div>
+    <div class="card">
+      <p>You have the right to</p>
+      <ul>
+        <li>access the data stored about you (Art. 15 GDPR),</li>
+        <li>rectification of inaccurate data (Art. 16 GDPR),</li>
+        <li>erasure (Art. 17 GDPR),</li>
+        <li>restriction of processing (Art. 18 GDPR),</li>
+        <li>data portability (Art. 20 GDPR),</li>
+        <li>object to processing based on Art. 6(1)(f) GDPR (Art. 21 GDPR).</li>
+      </ul>
+      <p>A message to <a href="mailto:kontakt@sattler-it.de">kontakt@sattler-it.de</a> is sufficient.</p>
+    </div>
+    <div class="card">
+      <h2>Right to lodge a complaint</h2>
+      <p>You may lodge a complaint with a data protection supervisory authority (Art. 77 GDPR). The authority responsible for us is:</p>
+      <p>Der Hessische Beauftragte für Datenschutz und Informationsfreiheit<br>
+        Postfach 31 63, 65021 Wiesbaden, Germany<br>
+        <a href="https://www.datenschutz.hessen.de">www.datenschutz.hessen.de</a></p>
+    </div>
+  </div>
+
+  <p class="stand">Last updated: October 2026. In case of doubt, the <a href="datenschutz.html">German version</a> applies.</p>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+  © 2026 Hans Udo Sattler &nbsp;•&nbsp; Sattler IT-Service &nbsp;•&nbsp;
+  <a href="impressum.html">Legal notice</a> &nbsp;•&nbsp;
+  <a href="index-en.html">Tool overview</a>
+</footer>
+
+</body>
+</html>
