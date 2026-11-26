@@ -156,10 +156,12 @@
     .label.ueber { background: #CA6F1E; }
     .label.vorb  { background: #2980B9; }
     .label.aus   { background: #1E8449; }
+    .label.alt   { background: #95A5A6; }
     .post.neu   { border-left-color: #E74C3C; }
     .post.ueber { border-left-color: #CA6F1E; }
     .post.vorb  { border-left-color: #2980B9; }
     .post.aus   { border-left-color: #1E8449; }
+    .post.alt   { border-left-color: #95A5A6; }
 
     .post h2 {
       font-size: 17px;
@@ -269,6 +271,10 @@
          class="post ueber" + <span class="label ueber">Revision</span>
          class="post vorb" + <span class="label vorb">In preparation</span>
          class="post aus"  + <span class="label aus">Outlook</span>
+         class="post alt"  + <span class="label alt">Released</span>  (grau)
+         class="post alt"  + <span class="label alt">Implemented</span>   (grau, für erledigte Ankündigungen)
+    Wird ein "New"-Beitrag durch neuere Beiträge abgelöst, "neu" an beiden
+    Stellen durch "alt" ersetzen und "New" durch "Released".
     Die id (z. B. "smartpack") muss eindeutig sein; auf sie verweist der
     Kasten "Aktuelles" auf der Startseite.
   -->
@@ -303,9 +309,9 @@
   </article>
 
   <!-- BEITRAG -->
-  <article class="post neu" id="usblock-40">
+  <article class="post alt" id="usblock-40">
     <div class="post-meta">
-      <span class="label neu">New</span>
+      <span class="label alt">Released</span>
       <span class="post-date">17 Nov 2026</span>
       <a class="post-tool" href="https://sattlerit.github.io/sit-usblock/">USB-Lock</a>
     </div>
@@ -328,9 +334,9 @@
   </article>
 
   <!-- BEITRAG -->
-  <article class="post neu" id="brc-40">
+  <article class="post alt" id="brc-40">
     <div class="post-meta">
-      <span class="label neu">New</span>
+      <span class="label alt">Released</span>
       <span class="post-date">15 Nov 2026</span>
       <a class="post-tool" href="https://sattlerit.github.io/sit-brc/">BRC</a>
     </div>
@@ -343,9 +349,9 @@
   </article>
 
   <!-- BEITRAG -->
-  <article class="post vorb" id="lanscanner-42">
+  <article class="post alt" id="lanscanner-42">
     <div class="post-meta">
-      <span class="label vorb">In preparation</span>
+      <span class="label alt">Implemented</span>
       <span class="post-date">29 Oct 2026</span>
       <a class="post-tool" href="https://sattlerit.github.io/sit-lanscanner/">LAN Device Scanner</a>
     </div>
@@ -365,9 +371,9 @@
   </article>
 
   <!-- BEITRAG -->
-  <article class="post neu" id="smartpack">
+  <article class="post alt" id="smartpack">
     <div class="post-meta">
-      <span class="label neu">New</span>
+      <span class="label alt">Released</span>
       <span class="post-date">25 Oct 2026</span>
       <a class="post-tool" href="https://sattlerit.github.io/sit-smartpack/">SmartPack</a>
     </div>
@@ -377,9 +383,9 @@
   </article>
 
   <!-- BEITRAG -->
-  <article class="post ueber" id="lanscanner-41">
+  <article class="post alt" id="lanscanner-41">
     <div class="post-meta">
-      <span class="label ueber">Revision</span>
+      <span class="label alt">Implemented</span>
       <span class="post-date">25 Oct 2026</span>
       <a class="post-tool" href="https://sattlerit.github.io/sit-lanscanner/">LAN Device Scanner</a>
     </div>
@@ -389,9 +395,9 @@
   </article>
 
   <!-- BEITRAG -->
-  <article class="post ueber" id="brc-oberflaeche">
+  <article class="post alt" id="brc-oberflaeche">
     <div class="post-meta">
-      <span class="label ueber">Revision</span>
+      <span class="label alt">Implemented</span>
       <span class="post-date">25 Oct 2026</span>
       <a class="post-tool" href="https://sattlerit.github.io/sit-brc/">BRC</a>
     </div>
@@ -413,9 +419,9 @@
   </article>
 
   <!-- BEITRAG -->
-  <article class="post vorb" id="lanscanner-sprachen">
+  <article class="post alt" id="lanscanner-sprachen">
     <div class="post-meta">
-      <span class="label vorb">In preparation</span>
+      <span class="label alt">Implemented</span>
       <span class="post-date">25 Oct 2026</span>
       <a class="post-tool" href="https://sattlerit.github.io/sit-lanscanner/">LAN Device Scanner</a>
     </div>
@@ -425,9 +431,9 @@
   </article>
 
   <!-- BEITRAG -->
-  <article class="post neu" id="videos">
+  <article class="post alt" id="videos">
     <div class="post-meta">
-      <span class="label neu">New</span>
+      <span class="label alt">Released</span>
       <span class="post-date">25 Oct 2026</span>
     </div>
     <h2>Short videos about the tools</h2>
